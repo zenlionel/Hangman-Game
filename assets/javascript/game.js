@@ -29,15 +29,18 @@ $(document).ready(function () {
     }
     //this shit doesn't work how i want it too >:(
     //this was supposed to put everything into an array
-    document.onkeyup = function wrongLetter(userGuess) {
-        if (wasteLett.includes(key.event)) {
+   /* document.onkeyup = function wrongLetter(userGuess) {
+        if (wasteLett.includes(userGuess)) {
             alert('you pressed that button already');
         } else {
-            wasteLett.push(key.event);
+            wasteLett.push(userGuess);
+          if (answer.includes(userGuess)) {
+              wasteLett.push(userGuess);
+          }
         }
-
-
+        
     }
+    */
     document.getElementById("lettGuess").innerHTML = wasteLett;
 
 
@@ -51,8 +54,7 @@ function takeLetter(userGuess) {
         }
     }
     if (loss === true) {
-        // code here, save the incorrec user guess
-        wrongLetter(userGuess);
+       
         life--;
         document.getElementById("guessRem").innerHTML = "You have " + life + " life left.";
     }
