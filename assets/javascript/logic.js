@@ -115,4 +115,29 @@ function roundComplete() {
     document.getElementById("win-counter").innerHTML = winCounter;
     startGame();
   }
+
+  //runs code if you didn't guess correctly and ran out of guesses
+  else if (numGuesses === 0) {
+    // Add to the loss counter.
+    lossCounter++;
+    alert("You lose");
+
+    // Update the loss counter in the HTML.
+    document.getElementById("loss-counter").innerHTML = lossCounter;
+    // Restart the game.
+    startGame();
+  }
+
 }
+
+
+//Actually starting the game
+startGame();
+
+// Then initiate the function for capturing key clicks.
+document.onkeyup = function(event) {
+  // Converts all key clicks to lowercase letters.
+  var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+  checkLetters(letterGuessed);
+  roundComplete();
+};
