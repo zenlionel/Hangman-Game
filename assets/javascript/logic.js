@@ -94,3 +94,25 @@ function checkLetters(letter) {
     numGuesses--;
   }
 }
+
+function roundComplete() {
+
+  // First, log an initial status update in the console telling us how many wins, losses, and guesses are left.
+  console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses);
+
+  // Update the HTML to reflect the new number of guesses. Also update the correct guesses.
+  document.getElementById("guesses-left").innerHTML = numGuesses;
+  document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
+  document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
+
+  // If we have gotten all the letters to match the solution...
+  if (lettersInChosenWord.toString() === blanksAndSuccesses.toString()) {
+    // ..add to the win counter & give the user an alert.
+    winCounter++;
+    alert("You win!");
+
+    // Update the win counter in the HTML & restart the game.
+    document.getElementById("win-counter").innerHTML = winCounter;
+    startGame();
+  }
+}
