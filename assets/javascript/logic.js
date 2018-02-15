@@ -38,3 +38,24 @@ function startGame() {
   blanksAndSuccesses = [];
  
   wrongGuesses = [];
+
+  // Fill up the blanksAndSuccesses list with appropriate number of blanks.
+  // This is based on number of letters in solution.
+  for (var i = 0; i < numBlanks; i++) {
+    blanksAndSuccesses.push("_");
+  }
+
+  // Print the initial blanks in console. for testing.
+  console.log(blanksAndSuccesses);
+
+
+  // Reprints the guessesLeft to 9
+  document.getElementById("guesses-left").innerHTML = numGuesses;
+
+  // Prints the blanks at the beginning of each round in the HTML
+  document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
+
+  // Clears the wrong guesses from the previous round
+  document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
+}
+
